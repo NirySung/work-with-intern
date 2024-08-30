@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load and flatten the data
+warpagedata = np.loadtxt('125C24H_24020133LEG1_A_1A_00038s(28C).dat')
+data = warpagedata.flatten().tolist()
+
+# Create the box plot
+plt.figure(figsize=(10, 6))
+plt.boxplot(data)
+
+# Customize the plot
+plt.title('Box Plot of Warpage Data')
+plt.ylabel('Values')
+
+# Remove x-axis labels as there's only one dataset
+plt.xticks([])
+
+# Add a grid for better readability
+plt.grid(True, axis='y', linestyle='--', alpha=0.7)
+
+# Show the plot
+plt.show()
+
+# Print statistics
+print('Maximum:', np.max(data))
+print('Minimum:', np.min(data))
+print('Median:', np.median(data))
+print('Standard deviation:', np.std(data))
+print('Mean:', np.mean(data))
